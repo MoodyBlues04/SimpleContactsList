@@ -32,7 +32,7 @@ class ContactController extends Controller
             FlashHelper::setSuccess('Contact saved');
         } catch (\Exception $e) {
             FlashHelper::setError($e->getMessage());
-            // TODO logging
+            \Yii::error($e->getMessage());
         }
         return $this->redirect('/contact/index');
     }
@@ -49,6 +49,7 @@ class ContactController extends Controller
             FlashHelper::setSuccess('Contact deleted');
         } catch (\Exception $e) {
             FlashHelper::setError($e->getMessage());
+            \Yii::error($e->getMessage());
         }
         return $this->redirect('/contact/index');
     }
